@@ -1,0 +1,37 @@
+<section class="carousel">
+  <div class="carousel__main">
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <% common.slick.forEach(function(altText, index) { %>
+        <div class="swiper-slide">
+          <div class="carousel__counter">
+            <p class="carousel__counter-text">
+              <span><%= index + 1 %></span>
+              <span><%= common.slick.length %></span>
+            </p>
+          </div>
+          <img 
+          src="<%= common.imgPath %>/limitedbenefit_slide-image<%= index + 1 %>.jpg" 
+          alt="<%= altText %>" 
+          loading="lazy"
+          />
+        </div>
+        <% }); %>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-block">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    
+      <!-- If we need scrollbar -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+  </div>
+</section>

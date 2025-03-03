@@ -1,0 +1,29 @@
+# EditorConfigは素晴らしい: https://EditorConfig.org
+
+# 最上位のEditorConfigファイル
+root = true
+
+# 各ファイルの末尾に改行を入れるUnixスタイルの改行
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# デフォルトの文字セットを設定
+[*.{ejs,html,css,scss,js}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+# タブによるインデント（サイズは指定されていない）
+[Makefile]
+indent_style = tab
+
+# libディレクトリ内のすべてのJSファイルのインデントオーバーライド
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# package.jsonまたは.travis.ymlという正確なファイル名に一致
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2

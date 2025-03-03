@@ -1,0 +1,65 @@
+<% for (var i = 1; i <= 8; i++) { %>
+  <div class="remodal p_lp_pickup_remodal p_lp_pickup_remodal<%= i %>" data-remodal-id="OtherItemModal<%= i %>">
+    <!-- クローズボタン -->
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="p_lp_pickup_remodal_main">
+      <div class="p_lp_pickup_remodal_namearea">
+        <!-- ブランド名があれば表示。なければ製品名（productName）の前にキャッチコピー等の補足情報を入れるなど必要に応じて調整 -->
+        <p class="p_lp_pickup_remodal_subname"><%= common.OtherItem[i-1].brandName || "" %></p>
+        <p class="p_lp_pickup_remodal_name"><%= common.OtherItem[i-1].productName %></p>
+      </div>
+      <div class="modal">
+        <div class="modal__main">
+          <div id="carousel-<%= i %>">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <% for (var j = 1; j <= common.OtherItem[i-1].slick; j++) { %>
+                  <img 
+                    src="<%= common.imgPath %>/pickup_img_m_<%- common.OtherItem[i-1].productName %>_<%= j %>.jpg" 
+                    class="swiper-slide"
+                    alt="Photo of <%- common.OtherItem[i-1].productName %>_<%= j %>" 
+                  />
+                <% } %>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-block">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p_lp_pickup_remodal_content">
+        <div class="p_lp_pickup_remodal_textarea">
+          <div class="p_lp_pickup_remodal_text_blockarea">
+            <ul class="p_lp_pickup_remodal_text_block">
+              <% if(common.OtherItem[i-1].price) { %>
+                <li>Price:<%= common.OtherItem[i-1].price %></li>
+              <% } %>
+              <% if(common.OtherItem[i-1].driveType) { %>
+                <li>Movement:<%= common.OtherItem[i-1].driveType %></li>
+              <% } %>
+              <% if(common.OtherItem[i-1].accuracy) { %>
+                <li>Drive period: <%= common.OtherItem[i-1].accuracy %></li>
+              <% } %>
+              <% if(common.OtherItem[i-1].material) { %>
+                <li>Exterior: <%= common.OtherItem[i-1].material %></li>
+              <% } %>
+              <% if(common.OtherItem[i-1].caseDiameter) { %>
+                <li>Case size: <%= common.OtherItem[i-1].caseDiameter %></li>
+              <% } %>
+            </ul>
+          </div>
+          <div class="p_lp_pickup_remodal_text_content">
+            <p class="p_lp_pickup_remodal_text_content_text1"><%- common.OtherItem[i-1].productCatchphrase %></p>
+            <p class="p_lp_pickup_remodal_text_content_text2"><%- common.OtherItem[i-1].modalDescription %></p>
+          </div>
+          <div class="p_lp_pickup_remodal_closebtn">
+            <p data-remodal-action="cancel"><span>Close</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% }; %>

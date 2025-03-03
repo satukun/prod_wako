@@ -1,0 +1,32 @@
+<% const absolutePath=`${process.cwd()}${common.commonPath}`; %>
+<!DOCTYPE html>
+  <html lang="<%= common.lang %>">
+      <head>
+        <title><%= common.meta.title %> | <%= common.siteName %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="description" content="<%= common.meta.description %>">
+        <meta property="og:url" content="<%= common.meta.ogpUrl %>">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="<%= common.meta.title %>">
+        <meta property="og:description" content="<%= common.meta.description %>">
+        <meta property="og:site_name" content="<%= common.meta.title %>">
+        <meta property="og:image" content="<%= common.meta.ogp %>">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="<%= common.meta.title %>">
+        <meta name="twitter:description" content="<%= common.meta.description %>">
+        <meta name="twitter:image" content="<%= common.meta.ogp %>">
+        <meta property="fb:app_id" content="">
+        <link rel="canonical" href="<%= common.meta.canonical %>">
+        <link rel="shortcut icon" href="/global-en/-/media/Images/Common/GrandSeiko/HeadMeta/Favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/global-en/-/media/Images/Common/GrandSeiko/HeadMeta/AppleTouchIcon/apple-touch-icon.png"/>
+        <link rel="stylesheet" type="text/css" href="<%= common.cssPath %>/remodal.min.css" />
+        <link rel="stylesheet" type="text/css" href="<%= common.cssPath %>/remodal-default-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="<%= common.cssPath %>/style.css" />
+        <link rel="stylesheet" type="text/css" href="<%= common.cssPath %>/swiper-bundle.min.css"/>
+        <script async="" src="/global-en/special/disclaimer/disclaimer.js?locale=global-en"></script>
+        <%- include(absolutePath + '/gtm', {isScript:true}) %>
+      </head>
+

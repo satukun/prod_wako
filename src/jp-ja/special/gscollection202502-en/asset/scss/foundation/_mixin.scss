@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@use "sass:math";
+
+/* breakpoint
+---------------------------------------------------------------------------- */
+$breakpoints: (
+  // 'lg': 'screen and (min-width: 1399px)',
+  "md": "screen and (max-width: 1400px)",
+  "sm": "screen and (max-width: 750px)",
+  "xs": "screen and (max-width: 426px)"
+) !default;
+
+@mixin lg($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin md($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin sp($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin xs($breakpoint: xs) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/* breakpointでvwの変更に使用
+---------------------------------------------------------------------------- */
+$sp-width: 750;
+
+//sp用
+@function spvw($num, $width: $sp-width) {
+  @return (1vw * math.div($num, $width) * 100);
+}
+
+//子要素の幅を親要素よりはみ出させる
+@mixin overChild {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  @include sp {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+@mixin innerChild {
+  max-width: $content-width;
+  width: $content-width;
+}

@@ -1,0 +1,31 @@
+<% const absolutePath=`${process.cwd()}${common.commonPath}`; %>
+<%- include(absolutePath + '/header') %>
+<body>
+    <%- include(absolutePath + '/gtm', {isScript:false}) %>
+    <main class="p_top">
+      <div class="p_top_main">
+        <!-- kv -->
+        <%- include(absolutePath + '/kv') %>
+
+        <!-- infomation -->
+        <%- include(absolutePath + '/infomation', {isBlock:false}) %>
+
+        <!-- introduction -->
+        <%- include(absolutePath + '/introduction', {isBlock:true}) %>
+
+        <!-- Limited Novelty -->
+        <%- include(absolutePath + '/novelty', {isBlock:true}) %>
+
+        <!-- caroucel -->
+        <%- include(absolutePath + '/carousel', {isBlock:true}) %>
+
+        <!-- pickup -->
+        <%- include(absolutePath + '/pickup', {isBlock:true}) %>
+
+        <!-- store -->
+        <%- include(absolutePath + '/store', {isBlock:true}) %>
+      </div>
+    </main>
+    <%- include(absolutePath + '/footer') %>
+  </body>
+</html>

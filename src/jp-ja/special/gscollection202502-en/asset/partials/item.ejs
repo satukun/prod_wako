@@ -1,0 +1,109 @@
+<% if(isMain) {%>
+  <div class="p_lp_pickup_content_inner">
+    <% if(layOutType == "A") {%>
+      <img class="p_lp_pickup_content_pickupimage fade-element" src="<%= common.imgPath %>/pickup_kv.jpg" alt="Photo of SBGX353/SBGA407">
+      <div class="p_lp_pickup_layoutA fade-element">
+        <div class="p_lp_pickup_layoutA_heading fade-element">Blue skies and driven snow</div>
+        <div class="p_lp_pickup_layoutA_inner">
+          <% for (var i = 7; i <= 8; i++) { %>
+            <div class="p_lp_pickup_model fade-element">
+              <div class="p_lp_pickup_block-imagearea">
+                <img src="<%= common.imgPath %>/pickup_img_<%- common.OtherItem[i-1].productName %>.jpg" alt="<%= common.OtherItem[i-1].brandName %> <%= common.OtherItem[i-1].productName %>" loading="lazy" />
+              </div>
+              <div class="p_lp_pickup_model-textbox box-<%= i %>">
+                <!-- ブランド名と製品名を改行して表示 -->
+                <p class="p_lp_pickup_model-type">
+                  <%= common.OtherItem[i-1].brandName %><br>
+                  <%= common.OtherItem[i-1].productName %>
+                </p>
+                <!-- 製品の各スペック情報を表示 -->
+                <p class="p_lp_pickup_model-list">
+                  <%= common.OtherItem[i-1].price %> <br />
+                  Movement:<br class="sp"><%= common.OtherItem[i-1].driveType %>
+                </p>
+                <!-- 詳しくはこちらボタン（モーダルリンクは i を利用） -->
+                <p class="p_lp_pickup_model-btn">
+                  <a href="#OtherItemModal<%= i %>">Learn More</a>
+                </p>
+              </div>
+            </div>
+          <% }; %>
+        </div>
+      </div>
+    <% }; %>
+    <% if(layOutType == "B") {%>
+      <!-- <div class="p_lp_pickup_model model-1 fade-element">
+        <div class="p_lp_pickup_model-bg box-1">
+          <img class="sp" src="<%= common.imgPath %>/pick_bg01_sp.jpg" alt="Evolution 9 Collection SLGA025" loading="lazy" />
+          <img class="pc" src="<%= common.imgPath %>/pick_bg01.jpg" alt="Evolution 9 Collection SLGA025" loading="lazy" />
+        </div>
+        <div class="p_lp_pickup_model-textbox box-1 ">
+          <h3 class="p_lp_pickup_model-title">エメラルドグリーンの<br>渓谷美をダイヤルに映す、<br>スプリングドライブ5Days搭載モデル</h3>
+          <p class="p_lp_pickup_model-type">Evolution 9 Collection<br>SLGA025</p>
+          <p class="p_lp_pickup_model-list">1,463,000 円（税込） <br />Power Reserve:<br class="sp">スプリングドライブ　自動巻（手巻つき）<br />Drive period:<br class="sp">最大巻上時約120時間（約5日間）持続<br />Exterior: ブライトチタン<br />Case size:  40.0mm<br /></p>
+          <p class="p_lp_pickup_model-btn"><a href="#modal7">Learn More</a></p>
+        </div>
+      </div>
+      <div class="p_lp_pickup_model model-2 fade-element">
+        <div class="p_lp_pickup_model-bg box-1">
+          <img class="sp" src="<%= common.imgPath %>/pick_bg02_sp.jpg" alt="Heritage Collection SBGH347" loading="lazy" />
+          <img class="pc" src="<%= common.imgPath %>/pick_bg02.jpg" alt="Heritage Collection SBGH347" loading="lazy" />
+        </div>
+        <div class="p_lp_pickup_model-textbox box-2">
+          <h3 class="p_lp_pickup_model-title">「氷瀑」が織りなす<br class="sp">幻想的な光景を<br>ダイヤルに表現した<br class="sp">メカニカルウオッチ</h3>
+          <p class="p_lp_pickup_model-type">Heritage Collection<br>SBGH347</p>
+          <p class="p_lp_pickup_model-list">946,000 円（税込） <br />Power Reserve:<br class="sp">メカニカル　自動巻（手巻つき）<br />Drive period:最大巻上時約55時間持続<br />Exterior: エバーブリリアントスチール<br />Case size:  37.0mm<br>発売日：2024年10月11日発売</p>
+          <p class="p_lp_pickup_model-btn"><a href="#modal8">Learn More</a></p>
+        </div>
+      </div> -->
+    <% }; %>
+  </div>
+<% }else{ %>
+    <div class="p_lp_pickup_blockarea">
+      <% for (var i = 1; i <= 6; i++) { %>
+        <div class="p_lp_pickup_block fade-element">
+          <div class="p_lp_pickup_block-imagearea">
+            <img src="<%= common.imgPath %>/pickup_img_<%- common.OtherItem[i-1].productName %>.jpg" alt="<%= common.OtherItem[i-1].brandName ? common.OtherItem[i-1].brandName + ' ' : '' %><%= common.OtherItem[i-1].productName %>" />
+          </div>
+          <div class="p_lp_pickup_block-textarea">
+            <!-- キャッチコピーを表示 -->
+            <p class="p_lp_pickup_block-text1">
+              <%- common.OtherItem[i-1].productCatchphrase %>
+            </p>
+            <div class="p_lp_pickup_block-textblockarea">
+              <div class="p_lp_pickup_block-textblock">
+                <div class="p_lp_pickup_block-textwrap">
+                  <!-- ブランド名（あれば）と製品名 -->
+                  <p class="p_lp_pickup_block-text2">
+                    <% if(common.OtherItem[i-1].brandName) { %>
+                      <%- common.OtherItem[i-1].brandName %><br />
+                    <% } %>
+                    <%- common.OtherItem[i-1].productName %>
+                  </p>
+                  <!-- 各スペック情報。改行は<br />で出力 -->
+                  <ul class="p_lp_pickup_block-text3">
+                    <%= common.OtherItem[i-1].price %><br />
+                    <% if(common.OtherItem[i-1].driveType) { %>
+                      <li>Movement:<br><%= common.OtherItem[i-1].driveType %></li>
+                    <% } %>
+                  </ul>
+                </div>
+                <!-- PC用「詳しくはこちら」ボタン（モーダルIDは i） -->
+                <p class="p_lp_pickup_block-textbtn pc">
+                  <a href="#OtherItemModal<%= i %>">Learn More</a>
+                </p>
+              </div>
+              <div class="p_lp_pickup_block-textblockimage">
+                <img src="<%= common.imgPath %>/pickup_img_<%- common.OtherItem[i-1].productName %>_mini.png" alt="<%= common.OtherItem[i-1].brandName ? common.OtherItem[i-1].brandName + ' ' : '' %><%= common.OtherItem[i-1].productName %>" loading="lazy" />
+              </div>
+            </div>
+            <!-- SP用「詳しくはこちら」ボタン -->
+            <p class="p_lp_pickup_block-textbtn sp">
+              <a href="#OtherItemModal<%= i %>">Learn More</a>
+            </p>
+          </div>
+        </div>
+      <% } %>
+    </div>    
+<% }; %>
+

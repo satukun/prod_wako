@@ -1,0 +1,16 @@
+<% const absolutePath=`${process.cwd()}${common.commonPath}`; %>
+<section class="p_lp_pickup">
+  <div class="p_lp_pickup_main">
+    <div class="p_lp_pickup_titlearea ">
+      <p class="p_lp_pickup_title-sub fade-element">Pickup Model</p>
+      <h2 class="fade-element">Featured models</h2>
+    </div>
+    <div class="p_lp_pickup_content">
+      <!-- アイテムリスト -->
+      <%- include(absolutePath + '/item',{isMain:true,layOutType:"A"}) %>
+      <%- include(absolutePath + '/item',{isMain:false}) %>
+    </div> 
+  </div>
+  <!-- モーダル -->
+  <%- include(absolutePath + '/modal') %>
+</section>
